@@ -6,7 +6,10 @@ verbs1 = use, release
 
 verbs2 = use, see, working
 
-Objects            Messages
+Objects                   messages                           Messages
 
-Person             use a bike
-Docking Station    release bike
+    Person               interact with bike                  use a bike
+    Docking Station      instance of bike                    release bike
+
+    Person               condition(bike working or not?)     use a good bike
+    Bike                 condition(working or not?)          check working
