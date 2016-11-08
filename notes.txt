@@ -1,0 +1,12 @@
+nouns1 = Person, Bike, Docking Station
+
+nouns2 = Person, bike, bike
+
+verbs1 = use, release
+
+verbs2 = use, see, working
+
+Objects            Messages
+
+Person             use a bike
+Docking Station    release bike
