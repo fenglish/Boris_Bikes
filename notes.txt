@@ -1,15 +1,47 @@
-nouns1 = Person, Bike, Docking Station
 
+
+nouns1 = Person, Bike, Docking Station
 nouns2 = Person, bike, bike
 
 verbs1 = use, release
-
 verbs2 = use, see, working
 
 Objects                   messages                           Messages
+<<<<<<< HEAD
 
     Person               interact with bike                  use a bike
     Docking Station      instance of bike                    release bike
 
     Person               condition(bike working or not?)     use a good bike
     Bike                 condition(working or not?)          check working
+=======
+    Person               interact with bike                  use a bike
+    Docking Station      instance of bike                    release bike
+    Person               condition(bike working or not?)     use a good bike
+    Bike                 condition(working or not?)          check working
+
+
+
+############## Stack Trace ################
+
+A stack trace is a list of the method calls that an application
+was in the middle of when an exception was thrown.
+
+"A stack trace is a report that provides information about program subroutines.
+It is commonly used for certain kinds of debugging, where a stack trace can help
+software engineers figure out where a problem lies or how various subroutines
+work together during execution."
+
+https://www.techopedia.com/definition/22307/stack-trace
+
+############## feature test ###############
+
+A software feature is something that adds functionality or modifies functionality.
+A feature test is a test set that tests the features according to what is required
+for that softwares release.
+
+Effective feature tests require an intimate understanding or specification of the feature.
+Features tests should exclusively test that particular feature of the program.
+Feature tests should cover positive, negative and boundary/edge cases.
+Feature tests should be conducted from the beginning.
+>>>>>>> da82c38cb9fbc18056c6e64926e24615300c165c
