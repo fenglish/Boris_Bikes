@@ -8,6 +8,7 @@ class DockingStation
     @bike = Bike.new
   end
   def dock_bike(bike)
+    if @bike != nil then raise "Docking station is full" end
     @bike = bike
   end
 

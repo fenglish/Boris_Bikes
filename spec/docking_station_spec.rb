@@ -16,8 +16,7 @@ end
 
 it { is_expected.to respond_to :dock_bike }
 it "docks a returned bike" do
-  @bike = subject.dock_bike(Bike.new)
-  expect(subject.dock_bike(@bike)).to be_truthy
+  expect(subject.dock_bike(Bike.new)).to be_truthy
 end
 
 #it { is_expected.to respond_to :see_docked_bikes }
@@ -27,6 +26,11 @@ end
 
 it "should not release a bike when there are no bikes" do
   expect{ subject.release_bike }.to raise_error("No bikes available!")
+end
+
+it "should not allow for more than one bike to be docked" do
+  @bike = subject.dock_bike(Bike.new)
+  expect{ subject.dock_bike(Bike.new)}.to raise_error("Docking station is full")
 end
 
 end
