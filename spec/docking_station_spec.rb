@@ -5,13 +5,22 @@ it { is_expected.to respond_to :release_bike }
 
 
 it "releases a bike" do
-  expect(DockingStation.new.release_bike).to be_an_instance_of(Bike)
+  expect(subject.release_bike).to be_an_instance_of(Bike)
 end
 
 it "releases a bike that works" do
-  expect(DockingStation.new.release_bike.working?).to eq true
+  expect(subject.release_bike.working?).to eq true
 end
 
+it { is_expected.to respond_to :dock_bike }
+it "docks a returned bike" do
+  bike = subject.release_bike
+  expect(subject.dock_bike(bike)).to be_truthy
+end
 
+#it { is_expected.to respond_to :see_docked_bikes }
+it "shows docked bikes when asked" do
+  expect(subject.bike).to eq @bike
+end
 
 end
