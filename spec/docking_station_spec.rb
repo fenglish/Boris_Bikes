@@ -1,4 +1,4 @@
-require 'docking_station_class'
+require 'docking_station'
 
 describe DockingStation do
 
@@ -42,4 +42,21 @@ describe DockingStation do
     end
   end
 
+  describe "capacity" do
+    it { is_expected.to respond_to :capacity }
+    it "should access capacity" do
+      expect(subject.capacity).to be_truthy
+    end
+  end
+
+  describe "initialize" do
+    it "should specify a larger capacity when necessary" do
+      subject = DockingStation.new(50)
+      expect(subject.capacity).to eq 50
+    end
+    it "should pass default capacity if there is no argument" do
+      subject = DockingStation.new()
+      expect(subject.capacity).to eq 20
+    end
+  end
 end
