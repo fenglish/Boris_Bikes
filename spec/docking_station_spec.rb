@@ -10,29 +10,13 @@ describe DockingStation do
       expect(subject.release_bike).to be_an_instance_of(Bike)
     end
 
-    it "releases a bike that works" do
-      bikes = subject.dock_bike(Bike.new)
-      expect(subject.release_bike.working?).to eq true
-    end
-
     it "should not release a bike when there are no bikes" do
       expect{ subject.release_bike }.to raise_error("No bikes available!")
     end
 
-  end
-
-  describe "#report_bike_condition" do
-    it { is_expected.to respond_to :report_bike_condition }
-
-    it { is_expected.to respond_to(:report_bike_condition).with(1).argument}
-
-    it 'should return true if bike is working' do
-      bike = Bike.new
-      expect(subject.dock_bike(bike)).to eq true
-    end
-
-    it 'should report false if bike is not working' do
-      expect(subject.report_bike_condition(false)).to eq false
+    it "should not release any bikes when all bikes are broken" do
+      20.times{ subject.dock_bike(Bike.new, false)}
+      expect{ subject.release_bike }.to raise_error("No bikes available!")
     end
 
   end
