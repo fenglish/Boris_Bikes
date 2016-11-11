@@ -1,4 +1,4 @@
-require_relative "bike"
+require_relative "bike.rb"
 
 class DockingStation
 
@@ -19,9 +19,10 @@ class DockingStation
     bike
   end
 
-  def dock_bike(bike)
+  def dock_bike(bike, condition = true)
     raise "Docking station is full" if full?
     @bikes << bike
+    bike.working?(condition)
   end
 
 private

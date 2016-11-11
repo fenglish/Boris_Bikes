@@ -18,6 +18,23 @@ describe DockingStation do
     it "should not release a bike when there are no bikes" do
       expect{ subject.release_bike }.to raise_error("No bikes available!")
     end
+
+  end
+
+  describe "#report_bike_condition" do
+    it { is_expected.to respond_to :report_bike_condition }
+
+    it { is_expected.to respond_to(:report_bike_condition).with(1).argument}
+
+    it 'should return true if bike is working' do
+      bike = Bike.new
+      expect(subject.dock_bike(bike)).to eq true
+    end
+
+    it 'should report false if bike is not working' do
+      expect(subject.report_bike_condition(false)).to eq false
+    end
+
   end
 
   describe "#dock_bike" do
@@ -40,6 +57,13 @@ describe DockingStation do
     it "should accept up to default capacity of bikes in each docking station" do
       expect( DockingStation::DEFAULT_CAPACITY.times { subject.dock_bike(Bike.new) } ).to be_truthy
     end
+
+    it "docking station should only accept a bike object" do
+      returning_bike = Bike.new
+      expect(subject.dock_bike(returning_bike)).to eq true
+    end
+
+
   end
 
   describe "capacity" do
