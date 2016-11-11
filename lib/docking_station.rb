@@ -27,7 +27,7 @@ class DockingStation
 private
 
 def full?
-  @bikes.size == DEFAULT_CAPACITY
+  @bikes.size == @capacity
 end
 
 def no_availability?
